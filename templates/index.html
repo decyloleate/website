@@ -3,140 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Business Portfolio | BizDev, Consulting & Vintage</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <title>evita design | Strategic Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #453630; /* ご指定のブラウン */
-            --bg-color: #FDFBF9;      /* 上品なオフホワイト */
-            --text-main: #333333;
-            --accent-color: #8C7A6B;  /* サブカラーの明るいブラウン */
+            --primary: #453630;
+            --noble-gold: #B49C6E;
+            --bg: #FDFBF9;
+            --text: #333333;
+            --transition-speed: 2.8s; 
         }
+        html { scroll-behavior: smooth; }
         body {
             margin: 0;
             font-family: 'Noto Serif JP', serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.8;
+            overflow-x: hidden;
         }
-        header {
-            background-color: var(--primary-color);
+
+        .supreme-logo {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: lowercase;
+            letter-spacing: -0.05em;
             color: white;
-            padding: 1.5rem 10%;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.2rem 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
         }
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            letter-spacing: 0.1em;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-        }
+        header .supreme-logo { font-size: 1.4rem; }
+
+        nav a { color: white; text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: opacity 0.3s; }
         nav a:hover { opacity: 0.7; }
+
         .hero {
+            background-color: var(--primary);
+            color: var(--noble-gold);
             text-align: center;
-            padding: 8rem 2rem;
-            background: linear-gradient(to bottom, #FDFBF9, #EBE5E0);
-            color: var(--primary-color);
+            padding: 20rem 2rem 15rem;
+            background-image: radial-gradient(circle at center, #5a4840 0%, #453630 100%);
         }
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .hero .supreme-logo { 
+            font-size: 3.5rem; 
+            margin-bottom: 2rem;
+            color: var(--noble-gold); /* ヒーローエリアではテーマカラーに合わせる */
         }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-        }
-        .section {
-            padding: 5rem 10%;
-        }
+
+        .hero h2 { font-size: 2.8rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+        .hero p { font-size: 1.1rem; letter-spacing: 0.2em; }
+
+        .section { padding: 10rem 10%; }
         .section-title {
             text-align: center;
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 8rem;
+            letter-spacing: 0.1em;
         }
-        .services {
+        .service-row {
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
+            align-items: center;
+            margin-bottom: 12rem;
+            position: relative;
+            width: 100%;
+        }
+        .service-row:nth-child(even) { flex-direction: row-reverse; }
+        .bg-block {
+            background-color: var(--primary);
+            width: 60%;
+            height: 450px;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(180, 156, 110, 0.3);
+            outline: 15px solid var(--primary);
+            outline-offset: -30px;
         }
-        .service-card {
-            background: white;
-            border-top: 4px solid var(--primary-color);
-            padding: 2.5rem;
-            width: 30%;
-            min-width: 280px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .service-card h3 {
-            color: var(--primary-color);
-            border-bottom: 1px solid #EBE5E0;
-            padding-bottom: 1rem;
-            margin-top: 0;
-        }
-        footer {
-            background-color: var(--primary-color);
+        .bg-block h4 {
             color: white;
+            font-size: 3rem;
+            letter-spacing: 0.15em;
+            margin: 0;
+            opacity: 0.8;
+            font-weight: 700;
+        }
+        .detail-card {
+            background: white;
+            width: 50%;
+            padding: 4rem;
+            position: absolute;
+            right: 5%;
+            z-index: 2;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+        .service-row:nth-child(even) .detail-card { left: 5%; right: auto; }
+        .detail-card h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-top: 0;
+            border-left: 3px solid var(--noble-gold);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .detail-card ul { list-style: none; padding: 0; }
+        .detail-card li { position: relative; padding-left: 1.5rem; margin-bottom: 0.8rem; }
+        .detail-card li::before { content: "-"; position: absolute; left: 0; color: var(--noble-gold); }
+
+        /* スクロールアニメーション設定 */
+        .reveal {
+            opacity: 0;
+            transition: opacity var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1), 
+                        transform var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+        }
+        .from-left { transform: translateX(-80px); }
+        .from-right { transform: translateX(80px); }
+        .from-bottom { transform: translateY(80px); }
+        .active { opacity: 1; transform: translate(0, 0); }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--noble-gold);
             text-align: center;
-            padding: 2rem;
+            padding: 4rem;
             font-size: 0.8rem;
         }
     </style>
 </head>
-<body>
+<body id="top">
 
     <header>
-        <h1>My Business</h1>
+        <div class="supreme-logo">evita design</div>
         <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="#top">TOP</a>
+            <a href="#services">Domains</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <div class="hero">
-        <h2>新しい価値を、伝統的な手法で。</h2>
-        <p>事業開発・コンサルティング・ヴィンテージアパレル</p>
+        <div class="supreme-logo reveal from-bottom">evita design</div>
+        <h2 class="reveal from-bottom" style="transition-delay: 0.3s;">知性と戦略が、未来を定義する。</h2>
+        <p class="reveal from-bottom" style="transition-delay: 0.6s;">Strategic Intelligence & Data Science</p>
     </div>
 
     <div id="services" class="section">
-        <h2 class="section-title">事業内容</h2>
-        <div class="services">
-            <div class="service-card">
-                <h3>BizDev (新規事業開発)</h3>
-                <p>ゼロからの事業立ち上げや、既存リソースを活かしたアライアンス構築などを支援します。柔軟な発想でビジネスの種を育てます。</p>
+        <h2 class="section-title reveal from-bottom">Business Domains</h2>
+
+        <div class="service-row">
+            <div class="bg-block reveal from-left"><h4>Strategy</h4></div>
+            <div class="detail-card reveal from-right" style="transition-delay: 0.4s;">
+                <h3>事業戦略・マーケティング戦略</h3>
+                <ul>
+                    <li>コア・コンピタンスの再定義</li>
+                    <li>市場浸透およびブランド戦略</li>
+                    <li>アジャイルな市場適応</li>
+                    <li>競合分析とポジショニング最適化</li>
+                </ul>
             </div>
-            <div class="service-card">
-                <h3>Consulting</h3>
-                <p>家事按分などの経費最適化や、日々の業務フロー改善など、個人事業主・法人向けに実務に基づいた経営コンサルティングを提供します。</p>
+        </div>
+
+        <div class="service-row">
+            <div class="bg-block reveal from-right"><h4>Data Consultant</h4></div>
+            <div class="detail-card reveal from-left" style="transition-delay: 0.4s;">
+                <h3>データアナリスト<br>データサイエンティスト</h3>
+                <ul>
+                    <li>ディシジョン・サイエンスの社会実装</li>
+                    <li>機械学習を用いた需要予測・スコアリングモデル構築</li>
+                    <li>ビッグデータ解析による顧客インサイト抽出</li>
+                    <li>因果推論による施策の真因特定</li>
+                    <li>アルゴリズムによるオペレーショナル・エクセレンス</li>
+                </ul>
             </div>
-            <div class="service-card">
-                <h3>Vintage Clothing</h3>
-                <p>バンクーバーなど海外から直接買い付けたStussy等のストリートブランドを中心に、状態やデザインにこだわったヴィンテージアイテムを販売しています。</p>
+        </div>
+
+        <div class="service-row">
+            <div class="bg-block reveal from-left"><h4>BizDev</h4></div>
+            <div class="detail-card reveal from-right" style="transition-delay: 0.4s;">
+                <h3>BizDev</h3>
+                <ul>
+                    <li>新規事業のフェーズ0からの立ち上げ</li>
+                    <li>パートナーシップおよびアライアンス構築</li>
+                    <li>事業計画の策定とPMO業務</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="service-row">
+            <div class="bg-block reveal from-right"><h4>Vintage</h4></div>
+            <div class="detail-card reveal from-left" style="transition-delay: 0.4s;">
+                <h3>ヴィンテージアパレル販売</h3>
+                <ul>
+                    <li>キュレーションによる価値の再定義</li>
+                    <li>真正性(オーセンティシティ)の徹底担保</li>
+                    <li>製品の時間・背景の情緒的な所有体験を提供</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <div id="contact" class="section" style="background-color: #EBE5E0;">
-        <h2 class="section-title">お問い合わせ</h2>
-        <p style="text-align: center;">お仕事のご依頼や古着の在庫状況など、お気軽にお問い合わせください。</p>
-        <p style="text-align: center; font-weight: bold; margin-top: 2rem; color: var(--primary-color);">info@yourdomain.com</p>
+    <div id="contact" class="section reveal from-bottom" style="background-color: #EBE5E0; text-align: center;">
+        <h2 class="section-title">Contact</h2>
+        <p>高度戦略相談、またはデータ活用に関するご依頼はこちらまで。</p>
+        <p style="font-weight: bold; font-size: 1.2rem; color: var(--primary);">evita.design.tokyo@gmail.com</p>
     </div>
 
-    <footer>
-        &copy; 2026 My Business Portfolio. All rights reserved.
-    </footer>
+    <footer>&copy; 2026 evita design. All rights reserved.</footer>
 
+    <script>
+        /* スクロール監視による反復アニメーション制御 */
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
