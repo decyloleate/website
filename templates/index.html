@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Portfolio | BizDev, Consulting & Vintage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #453630; /* ご指定のブラウン */
+            --bg-color: #FDFBF9;      /* 上品なオフホワイト */
+            --text-main: #333333;
+            --accent-color: #8C7A6B;  /* サブカラーの明るいブラウン */
+        }
+        body {
+            margin: 0;
+            font-family: 'Noto Serif JP', serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.8;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+        nav a:hover { opacity: 0.7; }
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, #FDFBF9, #EBE5E0);
+            color: var(--primary-color);
+        }
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+        .section {
+            padding: 5rem 10%;
+        }
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .service-card {
+            background: white;
+            border-top: 4px solid var(--primary-color);
+            padding: 2.5rem;
+            width: 30%;
+            min-width: 280px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid #EBE5E0;
+            padding-bottom: 1rem;
+            margin-top: 0;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Business</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>新しい価値を、伝統的な手法で。</h2>
+        <p>事業開発・コンサルティング・ヴィンテージアパレル</p>
+    </div>
+
+    <div id="services" class="section">
+        <h2 class="section-title">事業内容</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>BizDev (新規事業開発)</h3>
+                <p>ゼロからの事業立ち上げや、既存リソースを活かしたアライアンス構築などを支援します。柔軟な発想でビジネスの種を育てます。</p>
+            </div>
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>家事按分などの経費最適化や、日々の業務フロー改善など、個人事業主・法人向けに実務に基づいた経営コンサルティングを提供します。</p>
+            </div>
+            <div class="service-card">
+                <h3>Vintage Clothing</h3>
+                <p>バンクーバーなど海外から直接買い付けたStussy等のストリートブランドを中心に、状態やデザインにこだわったヴィンテージアイテムを販売しています。</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="section" style="background-color: #EBE5E0;">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p style="text-align: center;">お仕事のご依頼や古着の在庫状況など、お気軽にお問い合わせください。</p>
+        <p style="text-align: center; font-weight: bold; margin-top: 2rem; color: var(--primary-color);">info@yourdomain.com</p>
+    </div>
+
+    <footer>
+        &copy; 2026 My Business Portfolio. All rights reserved.
+    </footer>
+
+</body>
+</html>
